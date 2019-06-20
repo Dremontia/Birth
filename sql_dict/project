@@ -1,0 +1,48 @@
+表设计 ：
+历史
+ create table history (
+    -> id int primary key auto_increment,
+    -> name varchar(32) not null,
+    -> word varchar(32) not null,
+    -> time datetime default now());
+用户
+> create table user(
+    -> id int primary key auto_increment,
+    -> name varchar(32) not null,
+    -> passwd varchar(128) not null);
+
+客户端 发送请求 展示结果
+服务端 逻辑操作 解决请求
+数据库操作段 操作数据库
+
+界面处理
+    while True:
+           界面1
+           while True:
+                界面2
+
+功能模块
+    网路搭建
+    注册
+    登录
+    查单词
+    历史记录
+
+
+输入隐藏 只能在终端运行
+import getpass
+
+pwd = getpass.getpass() #()内输入和INPUT一样
+
+转换加密数据
+import hashlib
+
+# hash = hashlib.md5()  #生成一个对象 hash对象
+# 算法加盐 #$awv3_
+# abc123  abc123#$awv3_
+hash = hashlib.md5("#$awv3_".encode())
+hash.update(pwd.encode())# 算法加密
+pwd = hash.hexdigest() #提取加密后的新密码
+
+
+注册协议： 客户端 R name passwd
